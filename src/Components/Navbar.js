@@ -6,9 +6,9 @@ const Navbar = () => {
       <div className="container">
         <a className="brand-logo">Select </a>
         <ul className="right">
-          <li><Link to ="/AddStore">AddStore</Link></li>
           <li><Link to ='/AddManager'>AddManager</Link></li>
           <li><Link to ='/AddCashier'>AddCashier</Link></li>
+          <li><Link to ="/AddStore">AddStore</Link></li>
           <li><NavLink to ='/DailySales'>DailySales</NavLink></li> 
         </ul>
       </div>
