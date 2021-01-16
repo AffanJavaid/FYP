@@ -3,7 +3,7 @@ import Home from './Home'
 const AdminLogin = () => {
   return (
     <div>
-        <Home/>
+       <Home/>
     </div>
   )
 }

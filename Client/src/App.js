@@ -1,4 +1,4 @@
-import AdminLogin from './Components/AdminLogin'
+import AdminLogin from './Admin Components/AdminLogin'
 
 function App() {
   return (
