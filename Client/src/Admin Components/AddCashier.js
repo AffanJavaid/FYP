@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 
 const AddCashier = () => {
@@ -12,3 +13,4 @@ const AddCashier = () => {
 }
 
 export default AddCashier
+*/

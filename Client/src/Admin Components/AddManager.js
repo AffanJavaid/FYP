@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 
 const AddManager = () => {
@@ -12,3 +13,4 @@ const AddManager = () => {
 }
 
 export default AddManager
+*/

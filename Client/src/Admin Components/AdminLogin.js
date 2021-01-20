@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 import Home from './Home'
 const AdminLogin = () => {
@@ -9,3 +10,4 @@ const AdminLogin = () => {
 }
 
 export default AdminLogin
+*/

@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+//import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// important for routing and navigation , access to router
+import {BrowserRouter as Router} from 'react-router-dom';
+
+// Import from context
+import {ProductProvider} from './context';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+ // <React.StrictMode>
+ <ProductProvider>
+  <Router>
+   <App />
+  </Router>
+ </ProductProvider>
+ ,
+ // </React.StrictMode>,
   document.getElementById('root')
 );
 
@@ -15,3 +26,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+

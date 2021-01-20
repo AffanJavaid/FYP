@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 
 const DailySales = () => {
@@ -12,3 +13,5 @@ const DailySales = () => {
 }
 
 export default DailySales
+
+*/

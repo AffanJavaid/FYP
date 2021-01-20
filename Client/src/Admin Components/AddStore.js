@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 
 const  AddStore = () => {
@@ -12,3 +13,4 @@ const  AddStore = () => {
 }
 
 export default AddStore
+*/

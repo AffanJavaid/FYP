@@ -1,5 +1,7 @@
+/*
 import Navbar from './Navbar'
 import { BrowserRouter,Route } from 'react-router-dom'
+
 import AddStore from './AddStore'
 import DailySales from './DailySales'
 import AddCashier from './AddCashier'
@@ -20,3 +22,4 @@ const Home = () => {
 }
 
 export default Home
+*/
