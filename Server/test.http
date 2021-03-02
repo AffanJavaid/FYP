@@ -1,0 +1,12 @@
+POST https://localhost/5000/Brand/register
+
+Content-Type: application/json
+
+{
+    bid:001,
+    email:"Brand1@swiftSense.com",
+    password:"123456",
+    bname:"brand1",
+    btype:"Clothes",
+    bowner:"Muzamil Ali "
+}
