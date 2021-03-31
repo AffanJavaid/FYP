@@ -1,45 +1,46 @@
-const mongoose = require('mongoose');
-const express = require('express');
-const dotenv = require('dotenv');
-const Cookie = require('cookie-parser');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
-const app = express();
-
-// Port assigned by production server or 5000 by default 
-const PORT = process.env.PORT || 5000;
-
-//To read json files
-app.use(express.json());
-//to read coookies
-app.use(cookieParser());
-// to access backend
-app.use(cors());
-
-
-// To connect with env file where we have url to connect with mongoDB
 dotenv.config();
 
-//listening to port 
-app.listen(PORT , ()=>{
-    console.log(`server started on port : ${PORT}`)
-})
+// set up server
 
-// DB Config
-const db = process.env.MDB_connect;
+const app = express();
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
 
-// Connect to MongoDB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true ,useUnifiedTopology: true}
-  )
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+app.use(express.json());
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://mern-auth-template-tutorial.netlify.app",
+    ],
+    credentials: true,
+  })
+);
 
+// connect to mongoDB
 
+mongoose.connect(
+  process.env.MDB_CONNECT,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err) => {
+    if (err) return console.error(err);
+    console.log("Connected to MongoDB");
+  }
+);
 
-//setup routes for middlewares
-app.use("/Store", require('./routes/Store'));
-app.use("/Brand", require('./routes/Brand'));
+// set up routes
+
+app.use("/auth", require("./routers/userRouter"));
+app.use("/customer", require("./routers/customerRouter"));
+app.use("/store", require("./routers/StoreRouter"));
+app.use("/brand", require("./routers/BrandRouter"));
