@@ -3,12 +3,11 @@ const User = require("../models/StoreModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
-// register
 
+// register
 router.post("/", async (req, res) => {
   try {
-    const {sid,password,sloc,bid} = req.body;
-        
+    const {sid,password,sloc,bid} = req.body;    
     if(!sid || !password || !sloc || !bid)
     {
          return res.status(400).json({ errorMessage:"Please enter all required field: "});
@@ -64,6 +63,32 @@ router.post("/", async (req, res) => {
   }
 });
 
+// update Store
+router.put('/updateStore', auth, async(req,res) => {
+  const id = req.body.id;
+  const newLocation = req.body.newLocation;
+  try{
+    await User.findById(id, (err,newloc)=>{
+      newloc.sloc=newLocation;
+      newloc.save();
+      res.send('Updated')
+    })
+  }catch(err){
+    console.log(err);
+  }
+
+})
+
+//delete Store
+router.delete('/deleteStore/:id', auth, async(req, res)=>{
+  const sid = req.params.id;
+  try{
+    await User.findByIdAndRemove(sid).exec();
+    res.send('Deleted');
+  }catch(err){
+    console.log(err);
+  }
+})
 // log in
 
 router.post("/login", async (req, res) => {
@@ -136,10 +161,12 @@ router.get("/loggedIn", (req, res) => {
   }
 });
 
-router.get("/show", async (req, res) => {
+router.get("/show", auth, async (req, res) => {
   try {
+    //const brand = req.user;
+    //console.log(brand);
     const stores = await User.find();
-    res.json(stores);
+    res.json(stores); 
   } catch (err) {
     console.error(err);
     res.status(500).send();

@@ -6,7 +6,6 @@ const Navbar = () => {
   return (
     <nav className="nav-wrapper red darken-3">
       <div className="container">
-        <h2 className="brand-logo">Select </h2>
         <ul className="right">
         {loggedIn === false && (
           <>

@@ -6,19 +6,16 @@ const  AddStore = () => {
   const [sid, setSID] = useState(0);
   const [password, setPassword] = useState("");
   const [sloc, setlocation] = useState("");
-  const [bid, setBID] = useState(0);
+  const [bid, setbid] = useState(0)
 
-
-  async function register(e) {
-
-    e.preventDefault();
+  async function register() {
 
     try {
       const registerData = {
         sid,
         password,
         sloc,
-        bid,        
+        bid,
       };
 
       await axios.post("http://localhost:5000/store/", registerData,{
@@ -36,8 +33,8 @@ const  AddStore = () => {
   return (
     <div>
     <div className="container">
-    <h1>Register a new Store</h1>
-    <form className="form" onSubmit={register}>
+    <h3 className="red-text">Register a new Store</h3>
+    <form className="form" className="center-align" onSubmit={register}>
     <input
         type="Number"
         placeholder="Store ID"
@@ -56,10 +53,10 @@ const  AddStore = () => {
         onChange={(e) => setlocation(e.target.value)}
         value={sloc}
       />
-      <input
+    <input
         type="Number"
         placeholder="Brand ID"
-        onChange={(e) => setBID(e.target.value)}
+        onChange={(e) => setbid(e.target.value)}
         value={bid}
       />
 

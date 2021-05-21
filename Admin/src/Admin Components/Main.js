@@ -1,8 +1,11 @@
 import "../css/Main.css";
-
+import {useContext} from 'react';
+import BrandContext from "../Context/BrandContexts"
 import Chart from "./Chart";
 
-const Main = () => {
+function Main () {
+
+  const {Brand} = useContext(BrandContext)
   return (
     <main>
       <div className="main__container">
@@ -10,7 +13,7 @@ const Main = () => {
 
         <div className="main__title">
           <div className="main__greeting">
-            <h1>Brand Name </h1>
+            <h1>{Brand.bname}</h1>
             <p>Welcome to Brand admin dashboard</p>
           </div>
         </div>
@@ -20,10 +23,7 @@ const Main = () => {
         {/* <!-- MAIN CARDS STARTS HERE --> */}
         <div className="main__cards">
           <div className="card">
-            <i
-              className="fa fa-store-o fa-2x text-lightblue"
-              aria-hidden="true"
-            ></i>
+
             <div className="card_inner">
               <p className="text-primary-p">Number of Stores</p>
               <span className="font-bold text-title">7</span>
@@ -31,7 +31,7 @@ const Main = () => {
           </div>
 
           <div className="card">
-            <i className="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"></i>
+            
             <div className="card_inner">
               <p className="text-primary-p">Total Number of Customers Today </p>
               <span className="font-bold text-title">234</span>
@@ -39,10 +39,6 @@ const Main = () => {
           </div>
 
           <div className="card">
-            <i
-              className="fa fa-sales fa-2x text-yellow"
-              aria-hidden="true"
-            ></i>
             <div className="card_inner">
               <p className="text-primary-p">Total Sales </p>
               <span className="font-bold text-title">34000</span>
@@ -59,7 +55,6 @@ const Main = () => {
                 <h1>Daily Reports</h1>
                 <p>Multan, Karachi, Islamabad , Lahore</p>
               </div>
-              <i className="fa fa-usd" aria-hidden="true"></i>
             </div>
             <Chart />
           </div>
@@ -70,7 +65,6 @@ const Main = () => {
                 <h1>Sales Reports</h1>
                 <p>Karachi, Multan, Islamabad, Lahore</p>
               </div>
-              <i className="fa fa-usd" aria-hidden="true"></i>
             </div>
 
             <div className="charts__right__cards">

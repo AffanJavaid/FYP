@@ -131,7 +131,7 @@ router.get("/loggedIn", (req, res) => {
     if (!token) return res.json(false);
 
     jwt.verify(token, process.env.JWT_SECRET);
-
+    console.log(req.user);
     res.send(true);
   } catch (err) {
     res.json(false);
@@ -148,5 +148,15 @@ router.get("/show", async (req, res) => {
   }
 });
 
+router.get('/name', async(req,res)=>{
+  const id = req.user;
+  try{
+    const brand = await User.findOne(id);
+    res.json(brand);
+  }catch(err){
+    console.log(err);
+  }
+})
+  
 module.exports = router;
 

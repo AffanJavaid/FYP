@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
+import '../css/App.css'
 
 function AdminLogin() {
   const [email, setEmail] = useState("");
